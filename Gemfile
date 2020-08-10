@@ -65,3 +65,5 @@ gem 'dotenv-rails'
 
 gem 'table_print'
 gem 'faker'
+
+gem 'letter_opener'

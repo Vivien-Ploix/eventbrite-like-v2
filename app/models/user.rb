@@ -3,9 +3,6 @@ class User < ApplicationRecord
   has_many :attendances
 
 
-
-
-
   validates :email,
   presence: true,
   uniqueness: true,
@@ -13,6 +10,7 @@ class User < ApplicationRecord
 
 
 
+  after_create :welcome_send
 
 
 
