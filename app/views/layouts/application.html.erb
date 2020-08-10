@@ -11,52 +11,50 @@
 
   </head>
 
-  <nav style="height: 50px" class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-      <img style="height: 80px" src="<%= asset_path('the_gossip_project_face.png') %>" class="px-3 pt-3" alt="BIS">
-      <a class="px-3" href="<%= root_path %>">
-          <img alt="BIS" src="<%= asset_path('the_gossip_project_text2.png') %>" style="height: 60px">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                  <%= link_to "L'équipe", team_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                  <%= link_to "Contact", contact_path, class: "nav-link" %>
-              </li>
-              <% if current_user %>
-              <li class="nav-item">
-                  <%= link_to current_user.first_name, root_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                  <%= link_to "Log out", logout_path, method: :delete, class: "nav-link" %>
-              </li>
-              <% else %>
-              <li class="nav-item">
-                  <%= link_to "Sign up", new_user_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                  <%= link_to "Log in", login_path, class: "nav-link" %>
-              </li>
-              <% end %>
-          </ul>
-      </div>
+  <body>
+
+  <header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="<%=events_path%>">Eventbrite-like</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="<%=events_path%>">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= new_event_path %>">Créer un nouvel événement</a>
+      </li>
+      <li class="nav-item">
+      <a class="dropdown-item" href="<%= new_user_registration_path %>">S'inscrire</a>
+      </li>
+      <li class="nav-item">
+      <a class="dropdown-item" href="<%= new_user_session_path %>">Se connecter</a>
+      </li>
+      <li>
+      <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      </li>
+      <li class="nav-item dropdown">
+
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="<%= new_user_registration_path %>">S'inscrire</a>
+          <a class="dropdown-item" href="<%= new_user_session_path %>">Se connecter</a>
+        </div>
+      </li>
+    </ul>
   </div>
 </nav>
-<% if flash[:success] != nil %>
-<div class="alert alert-success" style="height:50px" role="alert">
-  <p style="margin-left:10%">
-      <%= flash[:success] %>
-  </p>
-</div>
-<% end %>
 
 
-  <body>
+
+
+
+</header>
     <%= yield %>
-  </body>
+
 </html>

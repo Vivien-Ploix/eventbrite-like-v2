@@ -27,7 +27,7 @@ Faker::Config.locale = 'fr'
   )
 end
 
-1.times do
+10.times do
   event = Event.create(
     start_date: Faker::Time.forward(days: 45, format: :short),
     duration: rand(10..300)*5,

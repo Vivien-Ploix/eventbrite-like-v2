@@ -67,3 +67,5 @@ gem 'table_print'
 gem 'faker'
 
 gem 'letter_opener'
+
+gem 'devise'
