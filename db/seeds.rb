@@ -18,7 +18,7 @@ Faker::Config.locale = 'fr'
 
 
 
-10.times do 
+1.times do 
   user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -27,7 +27,7 @@ Faker::Config.locale = 'fr'
   )
 end
 
-10.times do
+1.times do
   event = Event.create(
     start_date: Faker::Time.forward(days: 45, format: :short),
     duration: rand(10..300)*5,
@@ -39,7 +39,7 @@ end
   )
 end
 
-30.times do 
+1.times do 
   attendance = Attendance.create(
     participant_id: User.all.sample.id,
     event_id: Event.all.sample.id
