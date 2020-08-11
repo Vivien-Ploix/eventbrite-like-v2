@@ -12,9 +12,8 @@ class EventsController < ApplicationController
   end
   
   def create
-   # @event = Event.new(title: params[:title], description: params[:description], start_date: params[:start_date], duration: params[:duration], price: params[:price], location: params[:location])
-  @event = Event.new(event_params)
-   @event.admin_id = current_user.id
+    @event = Event.new(event_params)
+    @event.admin_id = current_user.id
 
     if @event.save
       flash[:success] = "The event was succesfully created !"
@@ -25,6 +24,11 @@ class EventsController < ApplicationController
       render new_event_path
     end 
 
+  end 
+
+
+  def destroy
+    @event.destroy
   end 
 
 
