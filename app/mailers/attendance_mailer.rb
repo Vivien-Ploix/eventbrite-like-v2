@@ -1,6 +1,6 @@
 class AttendanceMailer < ApplicationMailer
   
-  default from: 'vivien78@live.fr'
+  default from: 'vivien_du_78@live.fr'
  
   def attendance_email(attendance)
     @attendance = attendance 

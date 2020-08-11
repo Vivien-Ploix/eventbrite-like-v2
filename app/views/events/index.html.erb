@@ -4,7 +4,11 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
   <div class="container">
+    <% if current_user %>
     <h1 class="display-3">Hello, <%= current_user.first_name %>!</h1>
+    <%else%>
+    <h1 class="display-3">Hello !</h1>
+    <%end%>
     <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
     <p><a class="btn btn-primary btn-lg" href="<%= new_event_path %>" role="button">Créer un nouvel événement</a></p>
   </div>
