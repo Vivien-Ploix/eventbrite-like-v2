@@ -7,7 +7,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+ 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
   </head>
 
@@ -28,24 +32,26 @@
         <a class="nav-link" href="<%= new_event_path %>">Créer un nouvel événement</a>
       </li>
 
+
       <% if current_user %>
-        <li class="nav-item">
-          <%= link_to 'Edit Profile',edit_user_registration_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-        <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to current_user.first_name, user_path(current_user.id), class: "nav-link" %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to 'Editer Profil',edit_user_registration_path, class: "dropdown-item" %>
+          <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
         </li>
       <% else %>
-        <li class="nav-item">
-          <a class="nav-link" href="<%= new_user_registration_path %>">S'inscrire</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<%= new_user_session_path %>">Se connecter</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="<%= new_user_registration_path %>">S'inscrire</a>
+          <a class="dropdown-item" href="<%= new_user_session_path %>">Se connecter</a>
+          </div>
         </li>
       <% end %>
+
+
     </ul>
   </div>
 </nav>
