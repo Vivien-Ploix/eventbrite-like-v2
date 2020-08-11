@@ -8,6 +8,8 @@
         <div class="card-body text-success">
           <h6 class="card-title">Email: <%= @user.email %></h6>
           <p class="card-text text-muted">Description : <%= @user.description %></p>
+          <%= link_to 'Editer', edit_user_registration_path, :class => "btn btn-secondary", style:"font-size:smaller"%>
+
       </div>
     </div>
   </div>

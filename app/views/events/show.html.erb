@@ -14,6 +14,14 @@
           <p class="card-text text-muted"><%= @event.description %></p>
           <p class="card-text text-muted">Seulement <%= @event.price %>€</p>
           <p class="card-text text-muted">Se déroule à <%= @event.location %></p>
+          <p class="card-text text-muted">Nombre d'inscrits : <%= @event.participants.count %></p>
+          <p class="card-text text-muted">Email de l'organisateur : <%= @event.admin.email %></p>
+          <% if @event.admin == current_user %>
+          <%= link_to 'Editer', edit_event_path(:id => @event.id), :class => "btn btn-secondary", style:"font-size:smaller"%>
+          <td>
+              <%= link_to 'Supprimer', @event, method: :delete, data: { confirm: "Es-tu certain?" }, :class => "btn btn-secondary", style:"font-size:smaller" %>
+          </td>
+          <% end %>
 
         </div>
     </div>

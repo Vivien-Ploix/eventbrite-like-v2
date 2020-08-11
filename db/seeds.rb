@@ -32,10 +32,10 @@ end
   event = Event.create(
     start_date: Faker::Time.forward(days: 45, format: :short),
     duration: rand(10..300)*5,
-    description: Faker::Lorem.paragraph_by_chars(number: 150, supplemental: false),
+    description: Faker::Lorem.paragraph_by_chars(number: 100, supplemental: false),
     location: Faker::Address.city,
     price: rand(1..1000),
-    title: Faker::TvShows::GameOfThrones.quote,
+    title: Faker::Book.title,
     admin_id: User.all.sample.id
   )
 end

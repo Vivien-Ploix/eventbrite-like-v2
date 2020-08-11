@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+
+  before_action :authenticate_user!, only: [:new, :create]
+
   def index
     @events = Event.all
   end
@@ -17,7 +20,7 @@ class EventsController < ApplicationController
 
     if @event.save
       flash[:success] = "The event was succesfully created !"
-      redirect_to root_path
+      redirect_to event_path(@event.id)
     else
       @alert = true
       @message = "Error: " + @event.errors.messages.to_a.flatten[1]
@@ -28,7 +31,9 @@ class EventsController < ApplicationController
 
 
   def destroy
+    @event = Event.find(params[:id])
     @event.destroy
+    redirect_to root_path
   end 
 
 

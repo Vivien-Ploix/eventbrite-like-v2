@@ -9,27 +9,30 @@
     <%else%>
     <h1 class="display-3">Hello !</h1>
     <%end%>
-    <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+    <p>This is a first attempt to make a copy of the main functionalities that the Eventbrite website offers</p>
     <p><a class="btn btn-primary btn-lg" href="<%= new_event_path %>" role="button">Créer un nouvel événement</a></p>
   </div>
 </div>
 
-<div class="row mb-3">
+<div class="card-deck">
+
     <% @events.each do |event|%>
       <div class="col-md-4">
-        <div class="card p-3 m-4" style="width: 18rem;">
+        <div class="card m-4" style="height: 22rem">
           <div class="card-body">
             <h5 class="card-title"><%= event.title%></h5>
             <p class="card-text"><%= event.description%> </p>
+            <p class="card-text text-muted">Se déroule à <%= event.location %></p>
             <p class="card-text"><%= event.admin.first_name%> <%= event.admin.last_name%></p>
+          </div>
+          <div class="card-footer">
             <a href="<%= event_path(event.id) %>" class="btn btn-primary">Voir détails de l'événement</a>
           </div>
         </div> 
       </div>
     <%end%> 
-  </div>
 
-
+</div>
 
   <hr>
 
@@ -39,5 +42,5 @@
 
 
 <footer class="container">
-<p>© Company 2017-2018</p>
+<p>© No copyright</p>
 </footer>
