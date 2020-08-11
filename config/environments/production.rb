@@ -94,6 +94,6 @@ Rails.application.configure do
 
 
 
-  config.action_mailer.default_url_options = { :host => 'eventbrite-like-vivien.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'eventbrite-like-v2.herokuapp.com' }
 
 end
