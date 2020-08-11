@@ -18,12 +18,13 @@ Faker::Config.locale = 'fr'
 
 
 
-1.times do 
+5.times do 
   user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Name.first_name+"@yopmail.com",
-    description: Faker::Lorem.sentence
+    description: Faker::Lorem.sentence,
+    password: 'foobar' 
   )
 end
 

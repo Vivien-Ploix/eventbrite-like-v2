@@ -27,25 +27,25 @@
       <li class="nav-item">
         <a class="nav-link" href="<%= new_event_path %>">Créer un nouvel événement</a>
       </li>
-      <li class="nav-item">
-      <a class="dropdown-item" href="<%= new_user_registration_path %>">S'inscrire</a>
-      </li>
-      <li class="nav-item">
-      <a class="dropdown-item" href="<%= new_user_session_path %>">Se connecter</a>
-      </li>
-      <li>
-      <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-      </li>
-      <li class="nav-item dropdown">
 
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<%= new_user_registration_path %>">S'inscrire</a>
-          <a class="dropdown-item" href="<%= new_user_session_path %>">Se connecter</a>
-        </div>
-      </li>
+      <% if current_user %>
+        <li class="nav-item">
+          <%= link_to 'Edit Profile',edit_user_registration_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+        <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to current_user.first_name, user_path(current_user.id), class: "nav-link" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_user_registration_path %>">S'inscrire</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_user_session_path %>">Se connecter</a>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>

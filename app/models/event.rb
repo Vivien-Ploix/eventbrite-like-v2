@@ -10,9 +10,9 @@ class Event < ApplicationRecord
   validates :duration, presence: true
   validate :positive_multiple_5
 
-  validates :title, presence: true, length: { in: 5..140 } 
+  validates :title, presence: true, length: { in: 3..140 } 
 
-  validates :description, presence: true, length: { in: 20..1000 } 
+  validates :description, presence: true, length: { in: 5..1000 } 
 
   validates :price, presence: true, inclusion: { in: 1..1000 } 
 
