@@ -1,12 +1,12 @@
 class AttendanceMailer < ApplicationMailer
   
-  default from: 'vivien_du_78@live.fr'
+  default from: 'vivien78@live.fr'
  
   def attendance_email(attendance)
     @attendance = attendance 
     @admin = User.find(@attendance.event.admin_id)
 
-    @url  = 'https://eventbrite-like-vivien.herokuapp.com/login' 
+    @url  = 'https://eventbrite-like-v2.herokuapp.com/login' 
 
     mail(to: @admin.email, subject: "Un nouveau participant s'est inscrit à votre évènement !") 
   end

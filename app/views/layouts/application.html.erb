@@ -41,6 +41,8 @@
           <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
+        <li class="nav-link"><%= link_to current_user.first_name, user_path(current_user.id) %> </li>
+
       <% else %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown</a>

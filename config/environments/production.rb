@@ -93,7 +93,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.delivery_method = :smtp
-  host = 'vivien_du_78@live.fr'  
 
 
 
